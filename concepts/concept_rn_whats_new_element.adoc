@@ -1,0 +1,94 @@
+---
+permalink: concepts/concept_rn_whats_new_element.html
+sidebar: sidebar
+keywords: netapp, solidfire, element, storage, solidfire enterprise sds
+summary: NetApp periodically updates SolidFire and Element software to bring you new features, enhancements, and bug fixes.
+---
+= What's new in Element software 
+:url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/Element_Software_-_Apache_Log4j_Vulnerability_-_Workaround
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+NetApp periodically updates SolidFire and Element software to bring you new features, enhancements, and bug fixes. Element 12.7 is the latest release and includes security and system component updates, operational improvements, and resolved issues.
+
+NOTE: The cumulative software and firmware updates are installed as part of an Element 12.7 upgrade based on the current Element version running on a storage cluster. For example, if a cluster is currently running Element 12.3.x, you can upgrade directly to Element 12.7 to get the cumulative updates from both Element 12.5 and 12.7. For supported upgrade paths, see the Knowledge Base article https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/What_is_the_upgrade_matrix_for_storage_clusters_running_NetApp_Element_software[What is the upgrade matrix for storage clusters running NetApp Element software^].
+
+== Element 12.7
+
+Learn more about what is new in Element 12.7.
+
+=== Secure CHAP algorithms
+
+Element 12.7 includes support for secure FIPS compliant Challenge-Handshake Authentication Protocol (CHAP) algorithms SHA1, SHA-256, and SHA3-256. link:../storage/task_data_manage_accounts_work_with_accounts_task.html[Learn more].
+
+=== Dynamic block (bin) sync-in rate
+
+Cluster operations like additions, upgrades, or maintenance of nodes, or addition of drives, and so on, trigger block (bin) sync to distribute block data to the new or updated nodes in a cluster layout. Using a single slow speed as the default sync-in rate causes these operations to take a long time and does not take advantage of the higher processing power of larger nodes. Beginning with Element 12.7, the sync-in rate is dynamically tuned based on the number of cores on the storage node, enabling these operations to go significantly faster.
+
+For example, when you add large 28-core storage nodes (H610S, SF19210, and SF38410) running Element 12.7 to an existing cluster, the sync-in rate for data automatically tunes to 110Mbps instead of 60Mbps. Additionally, when you bring these large storage nodes out of node maintenance mode, for example, during an upgrade from Element 12.3.x or later to Element 12.7 using NetApp Hybrid Cloud Control, the sync-in rate for changed block data rate automatically tunes to 110Mbps instead of 20Mbps.
+
+When you add the medium 16-core storage nodes (H410S) and small 12-core storage nodes (SF4805) to an Element 12.7 cluster, the sync-in rate for data remains at 60Mbps; however, for syncing changed blocks when you bring them out of node maintenance mode during upgrades from Element 12.3.x to Element 12.7, the sync-in rate automatically tunes from 20Mbps to 60Mbps for medium storage nodes and 40Mbps for smaller storage nodes.
+
+When you remove storage nodes, there is no impact on the block sync-out rate which avoids performance impacts on client I/O.
+
+=== Garbage Collection improvement
+
+For clusters with larger storage nodes, for example, an H610S-4, that have 1PB of used space, are running very high workloads with overwrites, and have high deduplication and compression, the Garbage Collection operation can now keep up as the default bloom filter size has been increased for the larger nodes from 700GB or greater of memory to 1048576 bits. This change automatically takes effect after you upgrade your storage nodes to Element 12.7 and has no impact on smaller nodes.
+
+=== Scale improvement
+
+With Element 12.7, you no longer need to follow specific sequencing when adding multiple storage nodes worth of block and metadata drives to an existing cluster. Using the Element UI or API, you can simply select all available drives and bulk add them simultaneously. Element 12.7 automatically manages the data synchronization such that all block services are synced in simultaneously. As the block services for each node complete syncing, the metadata drive on that node becomes assignable to host volumes. This scale improvement significantly reduces read response latency and prevents performance degradation while data is syncing across newly added storage nodes.
+
+
+=== Storage node firmware updates
+Element 12.7 includes storage firmware bundle version 2.164.0, which includes support for new system components. link:https://docs.netapp.com/us-en/hci/docs/rn_storage_firmware_2.164.0.html[Learn more].
+
+NOTE: There are no new firmware updates in the Element 12.7 release. However, based on the current firmware bundle running on the storage nodes, the cumulative updates are installed when you upgrade to Element 12.7.
+
+=== SolidFire Active IQ documentation
+In the SolidFire Active IQ UI, you can now navigate to the QoS Management page to view recommendations and node throttling information for your cluster. In addition, the cluster dashboard now displays the total snapshot count. Other recent enhancements include the addition of primary and secondary node information for active volumes and average throughput, IOPS, and average latency for the last 30 minutes on the primary volumes on a node.
+
+You can now access the SolidFire Active IQ documentation from the Element software documentation. link:https://docs.netapp.com/us-en/element-software/monitor-storage-active-iq.html[Learn more].
+
+=== NetApp Bugs Online contains resolved and known issues
+Resolved and known issues are listed in the NetApp Bugs Online tool. You can browse these issues for Element software and other products at https://mysupport.netapp.com/site/products/all/details/element-software/bugsonline-tab[NetApp Bugs Online^].
+
+== Element 12.5
+Element 12.5 introduces improved storage node access, enhanced custom Protection Domains manageability, new and improved cluster faults and events, enhanced Create Cluster UI functionality, and enhanced security.
+
+=== Improved storage node access
+Element 12.5 brings improved remote access to individual nodes using signed SSH certificates. To provide secure remote access to storage nodes, a new, limited-privilege local user account called `sfreadonly` is now created during RTFI of a storage node. The `sfreadonly` account enables access to the storage node backend for basic maintenance or troubleshooting purposes. You can now configure the `supportAdmin` access type for a cluster administrator user to allow NetApp support access to the cluster on an as-needed basis.
+
+=== Enhanced custom Protection Domains manageability
+Element 12.5 features a new user interface that enables you to quickly and easily view existing custom Protection Domains and configure new custom Protection Domains.
+
+=== New and improved cluster faults, events, and alerts
+Element 12.5 enhances your system troubleshooting with the introduction of the new cluster fault codes `BmcSelfTestFailed` and `CpuThermalEventThreshold`. Element 12.5 also contains robustness improvements for existing cluster events and alerts, such as `nodeOffline`, `volumeOffline`, `driveHealthFault`, `networkEvent`, and	`cSumEvent`.
+
+=== Enable Software Encryption at Rest from the Create Cluster UI
+With the addition of a new checkbox in the Create Cluster UI, Element 12.5 gives you the option to enable cluster-wide Software Encryption at Rest for SolidFire all-flash storage clusters during cluster creation.
+
+=== Storage node firmware updates
+Element 12.5 includes firmware updates for storage nodes. link:../concepts/concept_rn_relatedrn_element.html#storage-firmware[Learn more].
+
+=== Enhanced security
+Element 12.5 contains the mitigation that closes the Element software exposure to the Apache Log4j vulnerability. NetApp SolidFire storage clusters with the Virtual Volumes (VVols) feature enabled are exposed to the Apache Log4j vulnerability. For information on the workaround for the Apache Log4j vulnerability in NetApp Element software, see the {url-peak}[KB article^].
+
+If you're running Element 11.x, 12.0, or 12.2 or your storage cluster is already at Element 12.3 or 12.3.1 with the VVols feature enabled, you should upgrade to 12.5.
+
+Element 12.5 also includes more than 120 CVE security vulnerability remediations.
+
+// === Automated upgrades using Ansible
+// With Element 12.5, you can automate the Element software upgrade workflow by using Ansible to perform a rolling upgrade of the entire storage cluster. To get started, navigate to the https://github.com/NetApp-Automation[NetApp Ansible repository^] on GitHub and download the `nar_solidfire_sds_upgrade` role and documentation.
+
+== Find more information
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes[NetApp Hybrid Cloud Control and Management Services Release Notes^]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation^]
+* http://docs.netapp.com/sfe-122/index.jsp[SolidFire and Element Software Documentation Center for previous versions^]
+* https://www.netapp.com/us/documentation/hci.aspx[NetApp HCI Resources page^]
+* link:../hardware/fw_storage_nodes.html[Supported storage firmware versions for SolidFire storage nodes]
+
+// 2023 NOV 27, DOC-4718
