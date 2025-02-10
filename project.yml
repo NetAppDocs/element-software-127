@@ -1,5 +1,6 @@
 settings:
   name: Element Software
+  downlevel: true
   internal:
     pdf_enabled: true
   prod:
@@ -8,8 +9,10 @@ settings:
   versions:
    # Current repo stanza comes first
     - version-number: "12.7"
-      url: /element-software
+      url: /element-software-127
    # Additional releases newest to oldest
+    - version-number: "12.8"
+      url: /element-software
     - version-number: "12.5"
       url: /element-software-125
     - version-number: "12.3"
