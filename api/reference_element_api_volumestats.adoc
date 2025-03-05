@@ -76,14 +76,6 @@ N/A
 a|
 integer
 a|
-clusterUtilization
-a|
-The amount of cluster capacity being utilized.
-a|
-N/A
-a|
-float
-a|
 desiredMetadataHosts
 a|
 The metadata (slice) services being migrated to if the volume metadata is being migrated between metadata services. A "null" value means the volume is not migrating.
@@ -112,6 +104,14 @@ a|
 N/A
 a|
 JSON object
+a|
+normalizedIOPS
+a|
+Average number of IOPS for the entire cluster in the last 500 milliseconds.
+a|
+Point in time
+a|
+integer
 a|
 nonZeroBlocks
 a|
@@ -303,3 +303,5 @@ Point in time
 a|
 integer
 |===
+
+// 2025 MAR 5, DOC-4778

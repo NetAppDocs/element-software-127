@@ -38,6 +38,12 @@ Number of failed drive hardware elements.
 a|
 integer
 a|
+iosInProgress
+a|
+The number of I/Os to this drive that are in progress.
+a|
+integer
+a|
 lifeRemainingPercent
 a|
 Drive media wear out indicator.
@@ -62,9 +68,27 @@ Number of hours this drive has been powered on.
 a|
 integer
 a|
+reads
+a|
+The number of read() calls per second to this drive.
+a|
+integer
+a|
 readBytes
 a|
 Total bytes read from the drive due to client operations.
+a|
+integer
+a|
+readsCombined
+a|
+The number of read() calls to adjacent sectors that could be combined into a larger read.
+a|
+integer
+a|
+readMsec
+a|
+The number of milliseconds spent reading.
 a|
 integer
 a|
@@ -116,9 +140,27 @@ Amount of memory currently used by the node hosting this drive.
 a|
 integer
 a|
+writes
+a|
+The number of write() calls per second to this drive.
+a|
+integer
+a|
 writeBytes
 a|
 Total bytes written to the drive due to client activity.
+a|
+integer
+a|
+writesCombined
+a|
+The number of write() calls to adjacent sectors that could be combined into a larger write.
+a|
+integer
+a|
+writeMsec
+a|
+The number of milliseconds spent writing.
 a|
 integer
 a|
@@ -133,3 +175,6 @@ integer
 == Find more information
 
 xref:reference_element_api_getdrivestats.adoc[GetDriveStats]
+
+
+// 2025 MAR 5, DOC-4778
