@@ -113,7 +113,17 @@ integer
 a|
 scheduleInfo
 a|
-Includes the unique name given to the schedule, the retention period for the snapshot that was created, and the volume ID of the volume from which the snapshot was created.
+Includes the unique name given to the schedule, the retention period for the snapshot that was created, and the volume ID of the volume from which the snapshot was created. Valid values:
+
+* `enableRemoteReplication`: Indicates if the snapshot should be included in remote replication. (boolean)
+* `ensureSerialCreation`: Specifies whether a new snapshot creation should be allowed if a previous snapshot replication is in progress. (boolean)
+* `name`: The snapshot name to be used. (string)
+* `retention`: The amount of time the snapshot is retained. Depending on the time, it displays in one of the following formats:
+** `fifo`: The snapshot is retained on a First-In-First-Out (FIFO) basis. If empty, the snapshot is retained forever. (string)
+** "HH:mm:ss" 
+* `volumeID`: The ID of the volume to be included in the snapshot. (integer)
+* `volumes`: A list of volume IDs to be included in the group snapshot. (integer array)
+
 a|
 JSON object
 a|
@@ -162,3 +172,5 @@ array
 == Find more information
 
 xref:reference_element_api_listschedules.adoc[ListSchedules]
+
+// 2025-MAR-5, DOC-4778
