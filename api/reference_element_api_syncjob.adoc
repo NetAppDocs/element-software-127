@@ -26,7 +26,7 @@ blocksPerSecond
 a|
 The number of data blocks being transferred per second from the source cluster to the target cluster. Present only if the type member is set to remote.
 a|
-float
+integer
 a|
 branchType
 a|
@@ -72,7 +72,7 @@ elapsedTime
 a|
 The time elapsed, in seconds, since the sync job started.
 a|
-float
+float or integer depending on the type of sync operation
 a|
 groupCloneID
 a|
@@ -90,13 +90,13 @@ percentComplete
 a|
 The percentage of sync job completion.
 a|
-integer
+float or integer depending on the type of sync operation
 a|
 remainingTime
 a|
 The estimated time, in seconds, to complete the operation.
 a|
-integer
+float
 a|
 sliceID
 a|
@@ -155,3 +155,6 @@ string
 == Find more information
 
 xref:reference_element_api_listsyncjobs.adoc[ListSyncJobs]
+
+
+// 2025 MAR 5, DOC-4778
