@@ -36,7 +36,7 @@ IMPORTANT: You should configure the management (Bond1G) and storage (Bond10G) in
 .Steps
 . In a browser window, enter the DHCP IP address of a node.
 +
-You must add the extension `:442` to access the node; for example, https://172.25.103.6:442.
+You must add the extension `:442` to access the node; for example, `https://172.25.103.6:442`.
 +
 The *Network Settings* tab opens with the *Bond1G* section.
 
