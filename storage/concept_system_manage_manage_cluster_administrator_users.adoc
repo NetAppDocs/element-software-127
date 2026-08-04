@@ -47,7 +47,12 @@ NOTE: A local (non-LDAP) cluster administrator account is required to access act
  ** supportAdmin
 
 +
-NOTE: All permissions are available to the administrator access type.
+[NOTE]
+====
+All permissions are available to the administrator access type.
+
+There are access types available through the API that aren't available in the Element UI.
+====
 
 * *Type*: The type of cluster administrator. Possible values:
  ** Cluster
@@ -118,8 +123,10 @@ You can use the Element UI to change cluster administrator passwords.
 . Click *Save Changes*.
 
 
-== Find more information
+.Related information
+* link:../api/reference_element_api_app_b_access_control.html[Learn about the access types available for Element APIs]
 * link:task_system_manage_enable_ldap_authentication.html[Enable LDAP authentication with the Element user interface]
 * link:concept_system_manage_manage_ldap.html[Disable LDAP]
-* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
 * https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+
+// 2026 AUG 4, DOC-4823

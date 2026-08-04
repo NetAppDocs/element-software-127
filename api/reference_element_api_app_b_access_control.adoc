@@ -4,13 +4,14 @@ sidebar: sidebar
 keywords: access,control,type
 summary: 'The Element API methods available vary based on the type of access you set.'
 ---
-
 = Access control
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
 The Element API methods available vary based on the type of access you set.
+
+NOTE: There are access types available through the API that aren't available in the Element UI.
 
 == accounts
 
@@ -483,3 +484,9 @@ GetAsyncResult
 a|
 RemoveDrives
 |===
+
+
+.Related information
+link:../storage/concept_system_manage_manage_cluster_administrator_users.html#view-cluster-admin-details[Learn about the access types available in the Element UI]
+
+// 2026 AUG 4, DOC-4823
