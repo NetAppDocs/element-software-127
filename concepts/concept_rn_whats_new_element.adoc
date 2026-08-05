@@ -88,7 +88,7 @@ Element 12.5 also includes more than 120 CVE security vulnerability remediations
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation^]
 * http://docs.netapp.com/sfe-122/index.jsp[SolidFire and Element Software Documentation Center for previous versions^]
-* https://www.netapp.com/us/documentation/hci.aspx[NetApp HCI Resources page^]
+* https://docs.netapp.com/us-en/hci/index.html[NetApp HCI Resources page^]
 * link:../hardware/fw_storage_nodes.html[Supported storage firmware versions for SolidFire storage nodes]
 
 // 2023 NOV 27, DOC-4718
