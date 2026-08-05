@@ -41,4 +41,4 @@ NOTE: Additional configuration tasks are required in vSphere. See the _VMware vS
 
 == Find more information
 
-https://www.netapp.com/pdf.html?item=/media/10516-tr4642pdf.pdf[VMware vSphere Virtual Volumes for SolidFire Storage Configuration Guide^]
+https://www.netapp.com/pdf.html?item=/media/10516-tr4642.pdf[VMware vSphere Virtual Volumes for SolidFire Storage Configuration Guide^]

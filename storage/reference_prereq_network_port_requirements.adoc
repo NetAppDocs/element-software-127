@@ -220,7 +220,7 @@ Management node
 a|
 443
 a|
-Element storage firmware upgrades
+Element storage upgrades
 a|
 Storage node MIP
 a|
@@ -431,5 +431,6 @@ vCenter Plug-in registration. The port can be closed after registration is compl
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
 * https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
 
+// 2026 AUG 4, DOC-4820
 // 2023 FEB 23, DOC-4667
 // 2022 DEC 14, DOC-4644
